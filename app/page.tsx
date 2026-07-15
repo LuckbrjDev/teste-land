@@ -6,6 +6,10 @@ const projects = [
     type: "ERP e gestão de eventos",
     image: "/projects/snow-dashboard.png",
     alt: "Dashboard gerencial do Snow On Ice 3.0",
+    gallery: [
+      { src: "/projects/gallery/snow-dashboard.png", label: "Dashboard" },
+      { src: "/projects/gallery/snow-login.png", label: "Login" },
+    ],
     description:
       "Sistema de gestão empresarial para eventos de pista de gelo, centralizando vendas, estoque, financeiro, clientes, caixa, eventos e relatórios.",
     problem: "Processos desconectados e pouca visibilidade operacional.",
@@ -27,6 +31,12 @@ const projects = [
     type: "Produtividade gamificada",
     image: "/projects/system-hunter.png",
     alt: "Central de operações do System Hunter",
+    gallery: [
+      { src: "/projects/system-hunter.png", label: "Central" },
+      { src: "/projects/gallery/system-hunter-perfil.png", label: "Perfil" },
+      { src: "/projects/gallery/system-hunter-contratos.png", label: "Contratos" },
+      { src: "/projects/gallery/system-hunter-missoes.png", label: "Missões" },
+    ],
     description:
       "Aplicação de produtividade que transforma tarefas, metas e objetivos em missões, contratos, XP, energia, níveis e rank.",
     problem: "Metas abstratas e dificuldade de manter hábitos consistentes.",
@@ -48,6 +58,11 @@ const projects = [
     type: "Suporte e automação",
     image: "/projects/chamado-express.png",
     alt: "Interface escura do Chamado Express",
+    gallery: [
+      { src: "/projects/gallery/chamado-escuro.png", label: "Modo escuro" },
+      { src: "/projects/gallery/chamado-claro.png", label: "Modo claro" },
+      { src: "/projects/gallery/chamado-barra-lateral.png", label: "Atalhos" },
+    ],
     description:
       "Ferramenta para agilizar e padronizar atendimentos técnicos, com atalhos personalizados e geração automática de resumos.",
     problem: "Registros demorados, respostas inconsistentes e informações incompletas.",
@@ -69,6 +84,11 @@ const projects = [
     type: "Relacionamento com clientes",
     image: "/projects/crm-clientes.png",
     alt: "Tela principal do CRM de Clientes",
+    gallery: [
+      { src: "/projects/crm-clientes.png", label: "Cadastro" },
+      { src: "/projects/gallery/crm-painel.png", label: "Painel" },
+      { src: "/projects/gallery/crm-calculo.png", label: "Métricas" },
+    ],
     description:
       "CRM leve para centralizar contatos, acompanhamento pós-atendimento, solicitações de avaliação e métricas de satisfação.",
     problem: "Contatos dispersos e acompanhamento sem histórico claro.",
@@ -90,6 +110,11 @@ const projects = [
     type: "Presença digital e conversão",
     image: "/projects/landing-pages.png",
     alt: "Landing page imobiliária profissional",
+    gallery: [
+      { src: "/projects/landing-pages.png", label: "Hero" },
+      { src: "/projects/gallery/landing-sobre.png", label: "Sobre" },
+      { src: "/projects/gallery/landing-contato.png", label: "Contato" },
+    ],
     description:
       "Páginas desenvolvidas sob medida para transmitir credibilidade, destacar diferenciais e transformar visitantes em clientes.",
     problem: "Marcas com mensagem pouco clara e baixa conversão de visitantes em contatos.",
@@ -111,6 +136,12 @@ const projects = [
     type: "ERP SaaS multiempresa",
     image: "/projects/omega-erp.png",
     alt: "Dashboard executivo do Omega ERP",
+    gallery: [
+      { src: "/projects/omega-erp.png", label: "Dashboard" },
+      { src: "/projects/gallery/omega-vendas.png", label: "Vendas" },
+      { src: "/projects/gallery/omega-financeiro.png", label: "Financeiro" },
+      { src: "/projects/gallery/omega-painel-saas.png", label: "SaaS" },
+    ],
     description:
       "ERP SaaS multiempresa para centralizar vendas, estoque, financeiro, PDV, relatórios e administração em uma plataforma única.",
     problem: "Informações espalhadas, retrabalho e pouca visão sobre a operação comercial.",
@@ -132,6 +163,12 @@ const projects = [
     type: "Ferramenta fiscal",
     image: "/projects/calculadora-icms.png",
     alt: "Calculadora ICMS 2026 com consulta entre Minas Gerais e Tocantins",
+    gallery: [
+      { src: "/projects/calculadora-icms.png", label: "Consulta" },
+      { src: "/projects/gallery/icms-claro.png", label: "Claro" },
+      { src: "/projects/gallery/icms-escuro.png", label: "Escuro" },
+      { src: "/projects/gallery/icms-tabela.png", label: "Matriz" },
+    ],
     description:
       "Ferramenta web para consultar alíquotas internas e interestaduais de ICMS entre todas as UFs do Brasil.",
     problem: "Consulta lenta, visualmente confusa e sujeita a erro em tabelas extensas.",
@@ -153,6 +190,12 @@ const projects = [
     type: "Transporte e pré-diagnóstico",
     image: "/projects/ciot-lab.png",
     alt: "Tela inicial do Ciot Lab",
+    gallery: [
+      { src: "/projects/ciot-lab.png", label: "Início" },
+      { src: "/projects/gallery/ciot-simulador.png", label: "Simulador" },
+      { src: "/projects/gallery/ciot-escuro.png", label: "Escuro" },
+      { src: "/projects/gallery/ciot-mobile.png", label: "Mobile" },
+    ],
     description:
       "Ferramenta interativa para orientar atendimentos sobre CIOT, RNTRC, TAC, ETC, CTC, Vale-Pedágio e Piso Mínimo.",
     problem: "Atendimentos baseados em interpretações soltas de regras técnicas.",
@@ -174,6 +217,7 @@ const projects = [
     type: "Projeto em desenvolvimento",
     image: null,
     alt: "",
+    gallery: [],
     description:
       "Novo projeto da Omega Software em construção, ainda reservado para evolução de conceito, interface e produto.",
     problem: "Ideia em fase de lapidação.",
@@ -409,6 +453,7 @@ export default function Home() {
               {project.image ? (
                 <div className="product-image">
                   <img src={project.image} alt={project.alt} loading="lazy" />
+                  <span>{project.shortTitle}</span>
                 </div>
               ) : (
                 <div className="product-symbol" aria-hidden="true">Ω</div>
@@ -473,6 +518,16 @@ export default function Home() {
                     ))}
                   </ul>
                 </div>
+                {project.gallery.length > 0 ? (
+                  <div className="project-gallery" aria-label={`Galeria de telas de ${project.title}`}>
+                    {project.gallery.map((item) => (
+                      <figure key={item.src}>
+                        <img src={item.src} alt={`${project.title}: ${item.label}`} loading="lazy" />
+                        <figcaption>{item.label}</figcaption>
+                      </figure>
+                    ))}
+                  </div>
+                ) : null}
                 <div className="project-detail-tags" aria-label={`Tecnologias e recursos de ${project.title}`}>
                   {project.tags.map((tag) => <span key={tag}>{tag}</span>)}
                 </div>
