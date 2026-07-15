@@ -223,6 +223,48 @@ const processSteps = [
   "Publicação, ajustes, suporte e evolução conforme novas necessidades aparecem.",
 ];
 
+const proofPoints = [
+  {
+    value: "menos retrabalho",
+    label: "processos deixam de depender de planilhas, mensagens soltas e controles paralelos",
+  },
+  {
+    value: "mais clareza",
+    label: "painéis, fluxos e cadastros organizam a rotina para decisões mais rápidas",
+  },
+  {
+    value: "entrega evolutiva",
+    label: "o projeto começa pelo essencial e cresce conforme o uso real mostra prioridade",
+  },
+];
+
+const offers = [
+  {
+    title: "Sistema sob medida",
+    description:
+      "Para empresas que precisam organizar vendas, estoque, financeiro, atendimento, operação ou processos internos em uma plataforma própria.",
+    bullets: ["Mapeamento do fluxo", "Interface responsiva", "Banco de dados", "Publicação e evolução"],
+  },
+  {
+    title: "Ferramenta operacional",
+    description:
+      "Para transformar uma rotina repetitiva, uma tabela complexa ou um procedimento técnico em uma aplicação simples de usar.",
+    bullets: ["Formulários inteligentes", "Automação de respostas", "Consultas guiadas", "Relatórios e histórico"],
+  },
+  {
+    title: "Landing page comercial",
+    description:
+      "Para profissionais e negócios que precisam apresentar valor, gerar confiança e converter visitantes em conversas pelo WhatsApp ou e-mail.",
+    bullets: ["Copy orientada à venda", "Design responsivo", "SEO básico", "Formulário e WhatsApp"],
+  },
+];
+
+const audiences = [
+  "Empresas com controles espalhados em planilhas, WhatsApp e sistemas que não conversam.",
+  "Negócios que precisam vender ou atender melhor, mas ainda dependem de processos manuais.",
+  "Profissionais que querem uma presença digital mais clara, confiável e preparada para gerar contatos.",
+];
+
 export default function Home() {
   return (
     <main>
@@ -236,6 +278,7 @@ export default function Home() {
         </a>
 
         <nav aria-label="Navegação principal">
+          <a href="#solucoes">Soluções</a>
           <a href="#projetos">Projetos</a>
           <a href="#detalhes">Detalhes</a>
           <a href="#processo">Processo</a>
@@ -255,21 +298,21 @@ export default function Home() {
 
         <div className="hero-copy">
           <p className="eyebrow">
-            <span /> Sistemas · Software · Impacto
+            <span /> Sistemas sob medida para negócios reais
           </p>
           <h1>
-            Ideias transformadas em <em>soluções digitais.</em>
+            Tire sua operação do improviso com <em>software próprio.</em>
           </h1>
           <p className="hero-text">
-            Desenvolvimento de sistemas de gestão, automações, ferramentas operacionais e aplicações web
-            pensadas para simplificar processos e gerar resultados.
+            Desenvolvimento de sistemas, ferramentas internas e landing pages para organizar processos,
+            reduzir retrabalho e transformar visitantes, dados e rotinas em resultado prático.
           </p>
           <div className="hero-actions">
-            <a className="button button-primary" href="#projetos">
-              Conhecer projetos <span aria-hidden="true">↓</span>
+            <a className="button button-primary" href="https://wa.me/5511946677094?text=Ol%C3%A1%2C%20quero%20conversar%20sobre%20um%20projeto%20de%20software%20sob%20medida." target="_blank" rel="noreferrer">
+              Solicitar conversa <span aria-hidden="true">↗</span>
             </a>
-            <a className="text-link" href="mailto:luckbrj.dev@gmail.com">
-              luckbrj.dev@gmail.com <span aria-hidden="true">↗</span>
+            <a className="text-link" href="#solucoes">
+              Ver soluções disponíveis <span aria-hidden="true">↓</span>
             </a>
           </div>
           <div className="availability">
@@ -299,15 +342,60 @@ export default function Home() {
         </div>
       </section>
 
+      <section className="proof-strip" aria-label="Benefícios comerciais">
+        {proofPoints.map((item) => (
+          <article key={item.value}>
+            <strong>{item.value}</strong>
+            <p>{item.label}</p>
+          </article>
+        ))}
+      </section>
+
+      <section className="section offers-section" id="solucoes">
+        <div className="section-heading">
+          <div>
+            <p className="section-kicker">O QUE VOCÊ PODE CONTRATAR</p>
+            <h2>Soluções digitais para vender, atender e operar melhor.</h2>
+          </div>
+          <p>
+            Cada entrega começa pelo problema de negócio. A tecnologia entra para criar clareza,
+            padronizar processos e entregar uma ferramenta que a equipe consiga usar no dia a dia.
+          </p>
+        </div>
+
+        <div className="offers-grid">
+          {offers.map((offer, index) => (
+            <article className="offer-card" key={offer.title}>
+              <span>{String(index + 1).padStart(2, "0")}</span>
+              <h3>{offer.title}</h3>
+              <p>{offer.description}</p>
+              <ul>
+                {offer.bullets.map((bullet) => <li key={bullet}>{bullet}</li>)}
+              </ul>
+            </article>
+          ))}
+        </div>
+
+        <div className="audience-panel">
+          <div>
+            <p className="section-kicker">PARA QUEM FAZ SENTIDO</p>
+            <h3>Se o problema já existe na rotina, ele pode virar produto.</h3>
+          </div>
+          <ul>
+            {audiences.map((item) => <li key={item}>{item}</li>)}
+          </ul>
+        </div>
+      </section>
+
       <section className="section products-section" id="projetos">
         <div className="section-heading">
           <div>
             <p className="section-kicker">PORTFÓLIO / 01—09</p>
-            <h2>Projetos criados a partir de necessidades práticas.</h2>
+            <h2>Projetos que mostram como uma solução pode sair do papel.</h2>
           </div>
           <p>
-            Sistemas, ferramentas e páginas construídas para resolver rotinas específicas, reduzir atrito
-            e transformar ideias em produtos utilizáveis.
+            Abaixo estão exemplos reais de sistemas, ferramentas e páginas criadas para resolver rotinas
+            específicas. Use como referência do tipo de entrega que pode ser adaptada ao seu negócio.
           </p>
         </div>
 
@@ -452,10 +540,10 @@ export default function Home() {
       <section className="process-section" id="processo">
         <div className="process-copy">
           <p className="section-kicker">PROCESSO</p>
-          <h2>Do briefing à publicação, com decisões próximas da operação.</h2>
+          <h2>Um caminho claro para sair da ideia e chegar no sistema publicado.</h2>
           <p>
-            O processo muda conforme o projeto, mas a lógica permanece: entender o cenário, organizar a
-            solução, construir por etapas e evoluir com o uso.
+            Você não precisa chegar com escopo fechado. A primeira etapa é entender o cenário, separar o
+            essencial do acessório e transformar a necessidade em uma entrega viável.
           </p>
         </div>
         <ol className="process-list">
@@ -469,10 +557,10 @@ export default function Home() {
       </section>
 
       <section className="manifesto">
-        <p className="section-kicker">SOBRE</p>
+        <p className="section-kicker">POR QUE CONTRATAR</p>
         <blockquote>
-          “Cada projeto nasce da observação de uma necessidade prática e evolui para uma solução organizada,
-          acessível e preparada para crescer.”
+          “Software bom não começa pela tela bonita. Começa por entender onde a operação perde tempo,
+          dinheiro ou clareza, e transformar isso em uma ferramenta que resolve.”
         </blockquote>
         <div className="manifesto-meta">
           <span>LUIZ AURORA</span>
@@ -483,10 +571,10 @@ export default function Home() {
       <section className="contact-section" id="contato">
         <div className="contact-glow" aria-hidden="true" />
         <p className="section-kicker">TEM UM PROBLEMA PARA RESOLVER?</p>
-        <h2>Vamos construir a solução.</h2>
+        <h2>Vamos desenhar o próximo passo.</h2>
         <p>
-          Conte o cenário, o que precisa funcionar e onde está o maior atrito. A conversa começa pelo
-          problema, não por uma lista de tecnologias.
+          Envie uma mensagem contando o cenário, o processo que está travando e o que precisa melhorar.
+          A partir disso, a conversa vira uma proposta de caminho, prazo e escopo.
         </p>
         <div className="contact-actions">
           <a className="button button-primary button-large" href="mailto:luckbrj.dev@gmail.com?subject=Novo projeto - Omega Software">
