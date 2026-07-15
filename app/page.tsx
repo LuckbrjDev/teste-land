@@ -463,9 +463,46 @@ export default function Home() {
               <ul aria-label={`Tecnologias de ${project.title}`}>
                 {project.tags.map((tag) => <li key={tag}>{tag}</li>)}
               </ul>
-              <a className="product-detail-link" href={`#projeto-${project.index}`}>
-                Ver detalhes <span aria-hidden="true">↓</span>
-              </a>
+              <details className="product-expand">
+                <summary>
+                  Abrir card <span aria-hidden="true">+</span>
+                </summary>
+                <div className="product-expand-content">
+                  {project.gallery.length > 0 ? (
+                    <div className="product-expand-gallery" aria-label={`Fotos do projeto ${project.title}`}>
+                      {project.gallery.map((item) => (
+                        <figure key={`${project.title}-${item.src}`}>
+                          <img src={item.src} alt={`${project.title}: ${item.label}`} loading="lazy" />
+                          <figcaption>{item.label}</figcaption>
+                        </figure>
+                      ))}
+                    </div>
+                  ) : (
+                    <div className="product-expand-placeholder" aria-hidden="true">Ω</div>
+                  )}
+                  <div className="product-expand-columns">
+                    <div>
+                      <small>Problema</small>
+                      <p>{project.problem}</p>
+                    </div>
+                    <div>
+                      <small>Solução</small>
+                      <p>{project.solution}</p>
+                    </div>
+                  </div>
+                  <div className="product-expand-features">
+                    <small>Recursos</small>
+                    <ul>
+                      {project.features.map((feature) => (
+                        <li key={`${project.title}-${feature}`}>{feature}</li>
+                      ))}
+                    </ul>
+                  </div>
+                  <a className="product-detail-link" href={`#projeto-${project.index}`}>
+                    Ver seção completa <span aria-hidden="true">↓</span>
+                  </a>
+                </div>
+              </details>
             </article>
           ))}
         </div>
